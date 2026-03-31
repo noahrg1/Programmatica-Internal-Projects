@@ -188,6 +188,193 @@
       color: #999;
     }
 
+    /* ── GST CALCULATOR ── */
+    .gst-section {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .gst-section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      text-align: left;
+    }
+
+    .gst-section .section-sub {
+      font-size: 0.85rem;
+      color: #999;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .gst-card {
+      border: 1.5px solid #f0f0f0;
+      border-radius: 16px;
+      padding: 2rem;
+      background: #fafafa;
+    }
+
+    /* mode toggle */
+    .mode-toggle {
+      display: inline-flex;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1.75rem;
+    }
+
+    .mode-toggle button {
+      flex: 1;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      font-family: inherit;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #888;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+
+    .mode-toggle button.active {
+      background: #111;
+      color: #fff;
+    }
+
+    /* inputs row */
+    .gst-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 520px) {
+      .gst-inputs { grid-template-columns: 1fr; }
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.45rem;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap .prefix {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #aaa;
+      pointer-events: none;
+    }
+
+    .input-wrap input,
+    .input-wrap select {
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.65rem 0.85rem 0.65rem 2rem;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 9px;
+      background: #fff;
+      color: #111;
+      outline: none;
+      transition: border-color 0.18s;
+      appearance: none;
+    }
+
+    .input-wrap select {
+      padding-left: 0.85rem;
+      cursor: pointer;
+    }
+
+    .input-wrap input:focus,
+    .input-wrap select:focus {
+      border-color: #e94560;
+    }
+
+    /* results */
+    .gst-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 520px) {
+      .gst-results { grid-template-columns: 1fr; }
+    }
+
+    .result-box {
+      background: #fff;
+      border: 1.5px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .result-box.highlight {
+      border-color: #e94560;
+      background: #fff5f7;
+    }
+
+    .result-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 0.4rem;
+    }
+
+    .result-box.highlight .result-label { color: #e94560; }
+
+    .result-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #111;
+    }
+
+    .result-box.highlight .result-value { color: #e94560; }
+
+    /* copy row */
+    .gst-actions {
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.6rem;
+    }
+
+    .btn-ghost {
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      color: #555;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .btn-ghost:hover { background: #f5f5f5; border-color: #ccc; }
+
+    .btn-ghost.copied { color: #28a745; border-color: #28a745; }
+
     /* FOOTER */
     footer {
       border-top: 1px solid #f0f0f0;
@@ -217,6 +404,7 @@
     <a href="/" class="nav-brand">Programmatica <span>Projects</span></a>
     <div class="nav-links">
       <a href="#projects">Projects</a>
+      <a href="#gst-tool">Tools</a>
       <a href="https://programmatica.co.nz" target="_blank">About</a>
     </div>
     <a href="https://github.com/noahrg1/Programmatica-Internal-Projects" target="_blank" class="nav-btn">GitHub</a>
@@ -253,6 +441,94 @@
         </div>
       </div>
     </div>
+
+    <!-- GST CALCULATOR -->
+    <div class="gst-section" id="gst-tool">
+      <h2>GST Calculator</h2>
+      <p class="section-sub">A quick tool for accountants — add or remove GST from any amount.</p>
+
+      <div class="gst-card">
+
+        <!-- Mode toggle -->
+        <div class="mode-toggle">
+          <button id="btn-add" class="active" onclick="setMode('add')">Add GST</button>
+          <button id="btn-remove" onclick="setMode('remove')">Remove GST</button>
+        </div>
+
+        <!-- Inputs -->
+        <div class="gst-inputs">
+          <div class="field">
+            <label id="amount-label">Amount (excl. GST)</label>
+            <div class="input-wrap">
+              <span class="prefix">$</span>
+              <input
+                type="number"
+                id="amount"
+                placeholder="0.00"
+                min="0"
+                step="0.01"
+                oninput="calculate()"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>GST Rate</label>
+            <div class="input-wrap">
+              <select id="rate" onchange="calculate()">
+                <option value="15">15% — New Zealand</option>
+                <option value="10">10% — Australia</option>
+                <option value="5">5% — Canada</option>
+                <option value="20">20% — United Kingdom</option>
+                <option value="custom">Custom…</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Custom rate field (hidden until selected) -->
+          <div class="field" id="custom-field" style="display:none;">
+            <label>Custom Rate (%)</label>
+            <div class="input-wrap">
+              <span class="prefix">%</span>
+              <input
+                type="number"
+                id="custom-rate"
+                placeholder="e.g. 7"
+                min="0"
+                max="100"
+                step="0.01"
+                oninput="calculate()"
+                style="padding-left: 1.8rem;"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="gst-results">
+          <div class="result-box">
+            <div class="result-label" id="label-excl">Excl. GST</div>
+            <div class="result-value" id="val-excl">$0.00</div>
+          </div>
+          <div class="result-box">
+            <div class="result-label">GST Amount</div>
+            <div class="result-value" id="val-gst">$0.00</div>
+          </div>
+          <div class="result-box highlight">
+            <div class="result-label" id="label-incl">Incl. GST</div>
+            <div class="result-value" id="val-incl">$0.00</div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="gst-actions">
+          <button class="btn-ghost" onclick="resetCalc()">Clear</button>
+          <button class="btn-ghost" id="copy-btn" onclick="copySummary()">Copy Summary</button>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -263,6 +539,98 @@
       <a href="https://programmatica.co.nz" target="_blank">programmatica.co.nz</a>
     </div>
   </footer>
+
+  <script>
+    let mode = 'add'; // 'add' = amount is excl. GST | 'remove' = amount is incl. GST
+
+    function setMode(m) {
+      mode = m;
+      document.getElementById('btn-add').classList.toggle('active', m === 'add');
+      document.getElementById('btn-remove').classList.toggle('active', m === 'remove');
+      document.getElementById('amount-label').textContent =
+        m === 'add' ? 'Amount (excl. GST)' : 'Amount (incl. GST)';
+      calculate();
+    }
+
+    document.getElementById('rate').addEventListener('change', function () {
+      const custom = this.value === 'custom';
+      document.getElementById('custom-field').style.display = custom ? 'block' : 'none';
+      calculate();
+    });
+
+    function getRate() {
+      const sel = document.getElementById('rate').value;
+      if (sel === 'custom') {
+        const v = parseFloat(document.getElementById('custom-rate').value);
+        return isNaN(v) ? null : v;
+      }
+      return parseFloat(sel);
+    }
+
+    function fmt(n) {
+      return '$' + n.toLocaleString('en-NZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function calculate() {
+      const raw = parseFloat(document.getElementById('amount').value);
+      const rate = getRate();
+
+      if (isNaN(raw) || raw < 0 || rate === null || rate < 0) {
+        ['val-excl', 'val-gst', 'val-incl'].forEach(id => {
+          document.getElementById(id).textContent = '$0.00';
+        });
+        return;
+      }
+
+      let excl, gstAmt, incl;
+
+      if (mode === 'add') {
+        excl    = raw;
+        gstAmt  = raw * (rate / 100);
+        incl    = raw + gstAmt;
+      } else {
+        incl    = raw;
+        excl    = raw / (1 + rate / 100);
+        gstAmt  = incl - excl;
+      }
+
+      document.getElementById('label-excl').textContent = mode === 'add' ? 'Excl. GST' : 'Excl. GST';
+      document.getElementById('label-incl').textContent = mode === 'add' ? 'Incl. GST' : 'Incl. GST';
+
+      document.getElementById('val-excl').textContent = fmt(excl);
+      document.getElementById('val-gst').textContent  = fmt(gstAmt);
+      document.getElementById('val-incl').textContent = fmt(incl);
+    }
+
+    function resetCalc() {
+      document.getElementById('amount').value = '';
+      document.getElementById('rate').value = '15';
+      document.getElementById('custom-field').style.display = 'none';
+      document.getElementById('custom-rate').value = '';
+      calculate();
+    }
+
+    function copySummary() {
+      const excl = document.getElementById('val-excl').textContent;
+      const gst  = document.getElementById('val-gst').textContent;
+      const incl = document.getElementById('val-incl').textContent;
+      const rate = document.getElementById('rate');
+      const rateLabel = rate.value === 'custom'
+        ? document.getElementById('custom-rate').value + '%'
+        : rate.options[rate.selectedIndex].text;
+
+      const text = `GST Summary (${rateLabel})\nExcl. GST:  ${excl}\nGST Amount: ${gst}\nIncl. GST:  ${incl}`;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Summary';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
 
 </body>
 </html>
