@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programmatica Projects</title>
+  <title>Karsen's Site</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -401,10 +401,10 @@
 
   <!-- NAV -->
   <nav>
-    <a href="/" class="nav-brand">Programmatica <span>Projects</span></a>
+    <a href="/" class="nav-brand">Karsen's <span>Site</span></a>
     <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#gst-tool">Tools</a>
+      <a href="#tools">Tools</a>
+      <a href="#gst-tool">GST Calculator</a>
       <a href="https://programmatica.co.nz" target="_blank">About</a>
     </div>
     <a href="https://github.com/noahrg1/Programmatica-Internal-Projects" target="_blank" class="nav-btn">GitHub</a>
@@ -412,32 +412,32 @@
 
   <!-- HERO -->
   <main class="hero">
-    <span class="badge">Work in progress</span>
-    <h1>Programmatica<br><span>Internal Projects</span></h1>
-    <p class="subheading">A collaborative space for the Programmatica team. Projects, tools, and experiments — built together.</p>
+    <span class="badge">Programmatica Internal</span>
+    <h1>Karsen's <span>Site</span></h1>
+    <p class="subheading">A personal sandbox for testing out Programmatica tools, workflows, and experiments. Things will change here often.</p>
     <div class="cta-group">
-      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#tools" class="btn-primary">View Tools</a>
       <a href="https://github.com/noahrg1/Programmatica-Internal-Projects" target="_blank" class="btn-secondary">Contribute on GitHub</a>
     </div>
 
-    <!-- PROJECTS -->
-    <div class="projects" id="projects">
-      <h2>Projects</h2>
+    <!-- TOOLS -->
+    <div class="projects" id="tools">
+      <h2>Tools & Experiments</h2>
       <div class="project-grid">
         <div class="project-card">
           <div class="card-icon"></div>
-          <div class="card-title">Project 1</div>
-          <div class="card-desc">Description coming soon.</div>
+          <div class="card-title">Tool 1</div>
+          <div class="card-desc">Coming soon.</div>
         </div>
         <div class="project-card">
           <div class="card-icon"></div>
-          <div class="card-title">Project 2</div>
-          <div class="card-desc">Description coming soon.</div>
+          <div class="card-title">Tool 2</div>
+          <div class="card-desc">Coming soon.</div>
         </div>
         <div class="project-card">
           <div class="card-icon"></div>
-          <div class="card-title">Project 3</div>
-          <div class="card-desc">Description coming soon.</div>
+          <div class="card-title">Tool 3</div>
+          <div class="card-desc">Coming soon.</div>
         </div>
       </div>
     </div>
@@ -541,7 +541,7 @@
   </footer>
 
   <script>
-    let mode = 'add'; // 'add' = amount is excl. GST | 'remove' = amount is incl. GST
+    let mode = 'add';
 
     function setMode(m) {
       mode = m;
@@ -593,9 +593,6 @@
         excl    = raw / (1 + rate / 100);
         gstAmt  = incl - excl;
       }
-
-      document.getElementById('label-excl').textContent = mode === 'add' ? 'Excl. GST' : 'Excl. GST';
-      document.getElementById('label-incl').textContent = mode === 'add' ? 'Incl. GST' : 'Incl. GST';
 
       document.getElementById('val-excl').textContent = fmt(excl);
       document.getElementById('val-gst').textContent  = fmt(gstAmt);
