@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programmatica Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand span { color: #e94560; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    .nav-links a:hover { color: #111; }
+
+    .nav-btn {
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover { background: #333; }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e94560;
+      background: #fff0f2;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 span { color: #e94560; }
+
+    .subheading {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.5rem;
+      background: #111;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: #333; }
+
+    .btn-secondary {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid #ddd;
+      color: #444;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover { background: #f5f5f5; }
+
+    /* PROJECTS */
+    .projects {
+      width: 100%;
+      max-width: 1000px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .projects h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      padding-bottom: 4rem;
+    }
+
+    .project-card {
+      border: 1.5px dashed #ddd;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: #aaa; }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      background: #f3f3f3;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #333;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: #999;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #f0f0f0;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a:hover { color: #555; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      footer { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-brand">Programmatica <span>Projects</span></a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="https://programmatica.co.nz" target="_blank">About</a>
+    </div>
+    <a href="https://github.com/noahrg1/programmatica_internal" target="_blank" class="nav-btn">GitHub</a>
+  </nav>
+
+  <!-- HERO -->
+  <main class="hero">
+    <span class="badge">Work in progress</span>
+    <h1>Programmatica<br><span>Internal Projects</span></h1>
+    <p class="subheading">A collaborative space for the Programmatica team. Projects, tools, and experiments — built together.</p>
+    <div class="cta-group">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="https://github.com/noahrg1/programmatica_internal" target="_blank" class="btn-secondary">Contribute on GitHub</a>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="projects" id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="card-icon"></div>
+          <div class="card-title">Project 1</div>
+          <div class="card-desc">Description coming soon.</div>
+        </div>
+        <div class="project-card">
+          <div class="card-icon"></div>
+          <div class="card-title">Project 2</div>
+          <div class="card-desc">Description coming soon.</div>
+        </div>
+        <div class="project-card">
+          <div class="card-icon"></div>
+          <div class="card-title">Project 3</div>
+          <div class="card-desc">Description coming soon.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Programmatica. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://github.com/noahrg1/programmatica_internal" target="_blank">GitHub</a>
+      <a href="https://programmatica.co.nz" target="_blank">programmatica.co.nz</a>
+    </div>
+  </footer>
+
+</body>
+</html>
